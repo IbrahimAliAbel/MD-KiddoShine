@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">KiddoShine</string>
+
+    <!-- Input BottomNavigation -->
+    <string name="title_home">Home</string>
+    <string name="title_list_anak">List Anak</string>
+    <string name="title_artikel">Artikel</string>
+    <string name="title_marketplace">Marketplace</string>
+
+    <!-- Input Akun Anak -->
+    <string name="nama_anak">Nama Anak</string>
+    <string name="usia_anak">Usia Anak</string>
+    <string name="tinggi_badan">Tinggi Badan</string>
+    <string name="berat_badan">Berat Badan</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="kelahiran">Kelahiran</string>
+    <string name="lingkar_kepala">Lingkar Kepala</string>
+    <string name="golongan_darah">Golongan darah</string>
+    <string name="alergi">Alergi</string>
+    <string name="submit">Submit</string>
+
+    <!-- Akun Anak -->
+
+    <!-- Jenis Kelamin -->
+    <string-array name="jenis_kelamin_array">
+        <item>Laki-laki</item>
+        <item>Perempuan</item>
+    </string-array>
+
+    <!-- Kelahiran -->
+    <string-array name="kelahiran_array">
+        <item>Normal</item>
+        <item>Premature</item>
+        <item>Sesar</item>
+    </string-array>
+
+    <!-- Golongan Darah -->
+    <string-array name="golongan_darah_array">
+        <item>A</item>
+        <item>B</item>
+        <item>AB</item>
+        <item>O</item>
+    </string-array>
+
+    <!-- Alergi -->
+    <string-array name="alergi_array">
+        <item>Ya</item>
+        <item>Tidak</item>
+    </string-array>
+</resources>
