@@ -23,11 +23,19 @@ class AnakViewModel(application: Application) : AndroidViewModel(application) {
         repository.insert(anak)
     }
 
+    fun update(anak: Anak) = viewModelScope.launch {
+        repository.update(anak)  // Update data anak
+    }
+
     fun deleteAnak(anak: Anak) = viewModelScope.launch {
         repository.delete(anak)
     }
 
     fun getAnakById(id: Int): LiveData<Anak?> {
         return repository.getAnakById(id)
+    }
+
+    fun getLatestAnakId(): LiveData<Int> {
+        return repository.getLatestAnakId() // Mengambil LiveData dari Repository
     }
 }

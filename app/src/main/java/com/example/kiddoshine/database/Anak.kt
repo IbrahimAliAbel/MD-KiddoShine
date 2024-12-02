@@ -17,5 +17,5 @@ data class Anak(
     val beratBadan: String,
     val photoPath: String? = null,
     val new_column: String? = "unknown",
-    val tanggalLahir: String// Kolom baru yang ditambahkan
+    val tanggalLahir: String
 )

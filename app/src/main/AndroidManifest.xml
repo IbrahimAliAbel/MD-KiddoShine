@@ -24,9 +24,11 @@
         android:theme="@style/Theme.KiddoShine"
         tools:targetApi="31">
         <activity
-            android:name=".dataanak.prediksi.InputDataStunting"
+            android:name=".dataanak.update.Updatedataanak"
             android:exported="false" />
-        <!-- Konfigurasi FileProvider -->
+        <activity
+            android:name=".dataanak.prediksi.InputDataStunting"
+            android:exported="false" /> <!-- Konfigurasi FileProvider -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"

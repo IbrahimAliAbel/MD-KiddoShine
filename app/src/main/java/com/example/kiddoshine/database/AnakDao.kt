@@ -27,4 +27,7 @@ interface AnakDao {
 
     @Query("SELECT * FROM anak_table")
     fun getAllAnak(): LiveData<List<Anak>> // Fungsi untuk mengambil semua entitas Anak
+
+    @Query("SELECT id FROM anak_table ORDER BY id DESC LIMIT 1")
+    fun getLatestAnakId(): LiveData<Int>
 }

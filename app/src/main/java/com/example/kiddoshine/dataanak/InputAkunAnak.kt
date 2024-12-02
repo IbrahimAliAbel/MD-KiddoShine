@@ -9,6 +9,7 @@ import android.provider.MediaStore
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.DatePicker
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -17,19 +18,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.kiddoshine.R
-import java.util.*
 import com.example.kiddoshine.database.Anak
 import com.example.kiddoshine.databinding.ActivityInputakunanakBinding
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
+import java.util.*
 
 class InputAkunAnak : AppCompatActivity() {
 
     // Inisialisasi View Binding
     private lateinit var binding: ActivityInputakunanakBinding
     private lateinit var anakViewModel: AnakViewModel
-
+    private var anakId: Int? = null // Untuk menyimpan ID anak yang ingin diedit
 
     // Variabel untuk kamera dan galeri
     private val REQUEST_IMAGE_CAPTURE = 1
@@ -43,6 +44,17 @@ class InputAkunAnak : AppCompatActivity() {
 
         anakViewModel = ViewModelProvider(this).get(AnakViewModel::class.java)
 
+        // Menangkap ID anak yang diteruskan dari halaman sebelumnya
+                anakId = intent.getIntExtra("anak_id", -1).takeIf { it != -1 }
+
+        // Cek apakah ID ada (mengedit) atau tidak (menambah)
+        if (anakId != null) {
+            loadAnakData(anakId!!)
+        } else {
+            // Tidak ada ID anak, berarti membuat data baru
+            supportActionBar?.title = "Tambah Akun Anak"
+        }
+
         /// Mengatur Spinner
         setupSpinners()
 
@@ -52,7 +64,13 @@ class InputAkunAnak : AppCompatActivity() {
 
         // Tombol untuk menyimpan data anak
         binding.btnSubmit.setOnClickListener {
-            saveAnakData()
+            if (anakId != null) {
+                // Jika ID ada, lakukan update
+                updateAnakData()
+            } else {
+                // Jika ID tidak ada, simpan sebagai data baru
+                saveAnakData()
+            }
         }
 
         // Set listener untuk klik pada TextInputEditText tanggal lahir
@@ -240,6 +258,62 @@ private fun saveAnakData() {
     Toast.makeText(this, "Data Anak Disimpan", Toast.LENGTH_SHORT).show()
     finish()
     }
+
+    private fun loadAnakData(anakId: Int) {
+        // Ambil data anak berdasarkan ID dan tampilkan pada form
+        anakViewModel.getAnakById(anakId).observe(this, { anak ->
+            anak?.let {
+                binding.etNamaAnak.setText(it.nama)
+                binding.etUsiaAnak.setText(it.usia)
+                binding.spinnerJenisKelamin.setSelection(getSpinnerIndex(binding.spinnerJenisKelamin, it.jenisKelamin))
+                binding.spinnerKelahiran.setSelection(getSpinnerIndex(binding.spinnerKelahiran, it.kelahiran))
+                binding.spinnerGolongandarah.setSelection(getSpinnerIndex(binding.spinnerGolongandarah, it.golonganDarah))
+                binding.spinnerAlergi.setSelection(getSpinnerIndex(binding.spinnerAlergi, it.alergi))
+                binding.etLingkarkepala.setText(it.lingkarKepala)
+                binding.etTinggiBadan.setText(it.tinggiBadan)
+                binding.etBeratBadan.setText(it.beratBadan)
+                binding.etTanggallahir.setText(it.tanggalLahir)
+            }
+        })
+    }
+
+    private fun getSpinnerIndex(spinner: Spinner, value: String): Int {
+        // Cast adapter ke ArrayAdapter<String> secara eksplisit
+        val adapter = spinner.adapter as ArrayAdapter<String>
+        return adapter.getPosition(value)
+    }
+
+    private fun updateAnakData() {
+        val namaAnak = binding.etNamaAnak.text.toString().trim()
+        val usiaAnak = binding.etUsiaAnak.text.toString().trim()
+        val jenisKelamin = binding.spinnerJenisKelamin.selectedItem.toString()
+        val kelahiran = binding.spinnerKelahiran.selectedItem.toString()
+        val golonganDarah = binding.spinnerGolongandarah.selectedItem.toString()
+        val alergi = binding.spinnerAlergi.selectedItem.toString()
+        val lingkarKepala = binding.etLingkarkepala.text.toString().trim()
+        val tinggiBadan = binding.etTinggiBadan.text.toString().trim()
+        val beratBadan = binding.etBeratBadan.text.toString().trim()
+        val tanggalLahir = binding.etTanggallahir.text.toString().trim()
+
+        val anak = Anak(
+            id = anakId!!, // ID untuk update
+            nama = namaAnak,
+            usia = usiaAnak,
+            jenisKelamin = jenisKelamin,
+            kelahiran = kelahiran,
+            golonganDarah = golonganDarah,
+            alergi = alergi,
+            lingkarKepala = lingkarKepala,
+            tinggiBadan = tinggiBadan,
+            beratBadan = beratBadan,
+            tanggalLahir = tanggalLahir
+        )
+
+        anakViewModel.update(anak)
+        Toast.makeText(this, "Data anak berhasil diperbarui", Toast.LENGTH_SHORT).show()
+        finish()
+    }
+
     @Throws(IOException::class)
     private fun createImageFile(): File {
         val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())

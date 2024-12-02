@@ -38,6 +38,10 @@ class AnakRepository(private val anakDao: AnakDao) {
         return anakDao.getAnakById(id)
     }
 
+    fun getLatestAnakId(): LiveData<Int> {
+        return anakDao.getLatestAnakId() // Mengembalikan LiveData dari DAO
+    }
+
     // Fungsi tambahan untuk menghapus berdasarkan ID
     suspend fun deleteById(id: Int) {
         try {

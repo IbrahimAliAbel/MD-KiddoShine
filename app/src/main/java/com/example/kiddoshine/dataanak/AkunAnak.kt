@@ -61,6 +61,12 @@ class AkunAnak : AppCompatActivity() {
             startActivity(intent)
             finish() // Menutup AkunAnak activity
         }
+
+        binding.btnUpdate.setOnClickListener {
+            val intent = Intent(this, InputAkunAnak::class.java)
+            intent.putExtra("ANAK_ID", anakId)  // Kirim ID anak untuk update
+            startActivity(intent)
+        }
     }
 
     private fun displayAnakData(anak: Anak) {

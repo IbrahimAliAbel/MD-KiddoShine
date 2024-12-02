@@ -20,8 +20,6 @@
     <string name="alergi">Alergi</string>
     <string name="submit">Submit</string>
 
-    <!-- Akun Anak -->
-
     <!-- Jenis Kelamin -->
     <string-array name="jenis_kelamin_array">
         <item>Laki-laki</item>
