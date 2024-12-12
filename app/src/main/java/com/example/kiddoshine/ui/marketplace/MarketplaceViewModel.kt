@@ -1,13 +1,16 @@
 package com.example.kiddoshine.ui.marketplace
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 
-class MarketplaceViewModel : ViewModel() {
+class MarketplaceViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is Marketplace Fragment"
+    private val _productList = MutableLiveData<List<produk>>()
+    val productList: LiveData<List<produk>> get() = _productList
+
+    fun setProductData(productData: List<produk>) {
+        _productList.value = productData
     }
-    val text: LiveData<String> = _text
 }

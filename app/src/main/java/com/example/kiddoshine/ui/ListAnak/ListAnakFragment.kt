@@ -28,7 +28,7 @@ class ListAnakFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentListAnakBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -36,12 +36,11 @@ class ListAnakFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Inisialisasi ViewModel
+
         val application = requireActivity().application
         val factory = AnakViewModelFactory(application)
         anakViewModel = ViewModelProvider(this, factory).get(AnakViewModel::class.java)
 
-        // Setup RecyclerView
         adapter = AnakAdapter(
             anakList = emptyList(),
             context = requireContext(),
@@ -51,11 +50,11 @@ class ListAnakFragment : Fragment() {
             startActivity(intent)
         },
         onItemLongClicked = { anak ->
-            // Tampilkan dialog konfirmasi hapus
+
             showDeleteConfirmationDialog(anak)
         },
             onAddClicked = {
-                // Navigasi ke halaman InputAkunAnak
+
                 startActivity(Intent(requireContext(), InputAkunAnak::class.java))
             })
 
@@ -63,12 +62,10 @@ class ListAnakFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
 
-        // Observasi data dari ViewModel
         anakViewModel.allAnak.observe(viewLifecycleOwner) { anakList ->
             adapter.updateData(anakList)
         }
 
-        // Tombol Add untuk menambah data baru
 
     }
 
@@ -85,7 +82,7 @@ class ListAnakFragment : Fragment() {
                 Toast.LENGTH_SHORT
             ).show()
         }
-        builder.setNegativeButton("Tidak", null) // Tutup dialog tanpa aksi
+        builder.setNegativeButton("Tidak", null)
         builder.show()
     }
     override fun onDestroyView() {

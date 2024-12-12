@@ -8,17 +8,21 @@
 
     <item
         android:id="@+id/navigation_list_anak"
-        android:icon="@drawable/anak_list"
+        android:icon="@drawable/anaklist"
         android:title="@string/title_list_anak"/>
 
     <item
         android:id="@+id/navigation_artikel"
-        android:icon="@drawable/artikel"
+        android:icon="@drawable/aurtikel"
         android:title="@string/title_artikel" />
 
     <item
         android:id="@+id/navigation_marketplace"
-        android:icon="@drawable/marketplace"
+        android:icon="@drawable/market"
         android:title="@string/title_marketplace" />
 
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/baseline_settings_24"
+        android:title="@string/title_settings"/>
 </menu>

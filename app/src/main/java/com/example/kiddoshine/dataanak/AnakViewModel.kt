@@ -36,6 +36,6 @@ class AnakViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun getLatestAnakId(): LiveData<Int> {
-        return repository.getLatestAnakId() // Mengambil LiveData dari Repository
+        return repository.getLatestAnakId()
     }
 }

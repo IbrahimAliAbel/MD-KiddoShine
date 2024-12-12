@@ -4,39 +4,53 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.kiddoshine.Adapter.ArticleAdapter
 import com.example.kiddoshine.databinding.FragmentArtikelBinding
+
 
 class ArtikelFragment : Fragment() {
 
-    private var _binding: FragmentArtikelBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentArtikelBinding
+    private lateinit var adapter: ArticleAdapter
+    private val artikelViewModel: ArtikelViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val artikelViewModel =
-            ViewModelProvider(this).get(ArtikelViewModel::class.java)
-
-        _binding = FragmentArtikelBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textArtikel
-        artikelViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        binding = FragmentArtikelBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupRecyclerView()
+        observeViewModel()
+        artikelViewModel.fetchArticles()
+    }
+
+    private fun setupRecyclerView() {
+        adapter = ArticleAdapter()
+        binding.recyclerView.layoutManager = LinearLayoutManager(context)
+        binding.recyclerView.adapter = adapter
+    }
+
+    private fun observeViewModel() {
+        artikelViewModel.articles.observe(viewLifecycleOwner, Observer { articles ->
+            adapter.submitList(articles)
+        })
+
+        artikelViewModel.loading.observe(viewLifecycleOwner, Observer { isLoading ->
+            binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        })
+
+        artikelViewModel.error.observe(viewLifecycleOwner, Observer { errorMessage ->
+
+        })
     }
 }

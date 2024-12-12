@@ -5,9 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
+    private val _ovalData = MutableLiveData<List<String>>()
+    val ovalData: LiveData<List<String>> = _ovalData
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    init {
+
+        loadOvalData()
     }
-    val text: LiveData<String> = _text
+
+    private fun loadOvalData() {
+        _ovalData.value = listOf("Oval 1", "Oval 2", "Oval 3", "Oval 4")
+    }
 }

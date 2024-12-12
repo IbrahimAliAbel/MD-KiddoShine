@@ -19,20 +19,19 @@ import java.io.File
 
 class AkunAnak : AppCompatActivity() {
 
-    // Inisialisasi View Binding
+
     private lateinit var binding: ActivityAkunanakBinding
     private lateinit var anakViewModel: AnakViewModel
     private var anakId: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Menggunakan View Binding untuk mengatur konten
+
         binding = ActivityAkunanakBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         anakViewModel = ViewModelProvider(this).get(AnakViewModel::class.java)
 
-        // Ambil ID anak dari Intent
         anakId = intent.getIntExtra("ANAK_ID", 0)
         Log.d("AkunAnak", "Received Anak ID: $anakId")
 
@@ -47,11 +46,11 @@ class AkunAnak : AppCompatActivity() {
 
 
         binding.btnBackToList.setOnClickListener {
-            // Kembali ke MainActivity
+
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
-            finish() // Menutup AkunAnak activity
+            finish()
         }
 
         binding.btnInput.setOnClickListener {
@@ -59,38 +58,33 @@ class AkunAnak : AppCompatActivity() {
             val intent = Intent(this, InputDataStunting::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
-            finish() // Menutup AkunAnak activity
+            finish()
         }
 
-        binding.btnUpdate.setOnClickListener {
-            val intent = Intent(this, InputAkunAnak::class.java)
-            intent.putExtra("ANAK_ID", anakId)  // Kirim ID anak untuk update
-            startActivity(intent)
-        }
     }
 
     private fun displayAnakData(anak: Anak) {
         binding.tvNamaAnak.text = anak.nama
-        binding.tvUsiaanak.text = "Usia : ${anak.usia}"
-        binding.tvJenisKelamin.text = "Jenis Kelamin: ${anak.jenisKelamin}"
-        binding.tvKelahiran.text = "Kelahiran: ${anak.kelahiran}"
-        binding.tvGolonganDarah.text = "Golongan Darah: ${anak.golonganDarah}"
-        binding.tvAlergi.text = "Alergi: ${anak.alergi}"
-        binding.tvLingkarKepala.text = "Lingkar Kepala: ${anak.lingkarKepala} cm"
+        binding.tvUsiaanak.text = "${anak.usia} Tahun"
+        binding.tvJenisKelamin.text =  anak.jenisKelamin
+        binding.tvKelahiran.text = anak.kelahiran
+        binding.tvGolonganDarah.text = anak.golonganDarah
+        binding.tvAlergi.text = anak.alergi
+        binding.tvLingkarKepala.text = "${anak.lingkarKepala} cm"
         binding.tvTinggiBadan.text = "${anak.tinggiBadan} cm"
         binding.tvBeratBadan.text = "${anak.beratBadan} kg"
-        binding.tvTanggalLahir.text = "Tanggal Lahir: ${anak.tanggalLahir}"
-        // Tampilkan foto anak jika ada
+        binding.tvTanggalLahir.text =  anak.tanggalLahir
+
         if (!anak.photoPath.isNullOrEmpty()) {
             val file = File(anak.photoPath)
             if (file.exists()) {
                 val bitmap = BitmapFactory.decodeFile(file.absolutePath)
                 binding.ivProfilePicture.setImageBitmap(bitmap)
             } else {
-                binding.ivProfilePicture.setImageResource(R.drawable.baseline_face_24)
+                binding.ivProfilePicture.setImageResource(R.drawable.rb_174367)
             }
         } else {
-            binding.ivProfilePicture.setImageResource(R.drawable.baseline_face_24)
+            binding.ivProfilePicture.setImageResource(R.drawable.rb_174367)
         }
     }
 
@@ -103,7 +97,7 @@ class AkunAnak : AppCompatActivity() {
             Log.d("AkunAnak", "Photo loaded successfully from URI: $uri")
         } catch (e: Exception) {
             Log.e("AkunAnak", "Error loading image from URI", e)
-            binding.ivProfilePicture.setImageResource(R.drawable.baseline_face_24)
+            binding.ivProfilePicture.setImageResource(R.drawable.rb_174367)
         }
     }
 

@@ -1,6 +1,5 @@
 package com.example.kiddoshine.Adapter
 
-import android.net.Uri
 import java.io.File
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -73,10 +72,10 @@ class AnakAdapter(
                             binding.imgItemPhoto.setImageBitmap(bitmap)
                         } else {
                             Log.d("AnakAdapter", "File not found: ${anak.photoPath}")
-                            binding.imgItemPhoto.setImageResource(R.drawable.baseline_face_24) // Gambar default
+                            binding.imgItemPhoto.setImageResource(R.drawable.rb_174367) // Gambar default
                         }
                     } else {
-                        binding.imgItemPhoto.setImageResource(R.drawable.baseline_face_24) // Gambar default
+                        binding.imgItemPhoto.setImageResource(R.drawable.rb_174367) // Gambar default
                     }
         }
     }

@@ -60,4 +60,9 @@ dependencies {
     implementation (libs.retrofit)
     implementation (libs.converter.gson)
     implementation (libs.okhttp)
+    implementation (libs.material.v160)
+    implementation (libs.glide)
+    implementation(libs.logging.interceptor)
+    implementation (libs.androidx.datastore.preferences)
+
 }

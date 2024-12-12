@@ -11,13 +11,13 @@ import androidx.room.Update
 interface AnakDao {
 
     @Insert
-    suspend fun insert(anak: Anak) // Fungsi untuk menyisipkan entitas Anak ke dalam database
+    suspend fun insert(anak: Anak)
 
     @Update
-    suspend fun update(anak: Anak) // Fungsi untuk mengupdate entitas Anak
+    suspend fun update(anak: Anak)
 
     @Delete
-    suspend fun delete(anak: Anak) // Fungsi untuk menghapus entitas Anak
+    suspend fun delete(anak: Anak)
 
     @Query("DELETE FROM anak_table WHERE id = :id")
     suspend fun deleteById(id: Int)
@@ -26,7 +26,7 @@ interface AnakDao {
     fun getAnakById(id: Int): LiveData<Anak?>
 
     @Query("SELECT * FROM anak_table")
-    fun getAllAnak(): LiveData<List<Anak>> // Fungsi untuk mengambil semua entitas Anak
+    fun getAllAnak(): LiveData<List<Anak>> 
 
     @Query("SELECT id FROM anak_table ORDER BY id DESC LIMIT 1")
     fun getLatestAnakId(): LiveData<Int>

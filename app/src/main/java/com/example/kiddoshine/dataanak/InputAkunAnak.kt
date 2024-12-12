@@ -1,7 +1,9 @@
 package com.example.kiddoshine.dataanak
 
+import android.Manifest
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
@@ -15,7 +17,8 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.kiddoshine.R
 import com.example.kiddoshine.database.Anak
@@ -27,15 +30,14 @@ import java.util.*
 
 class InputAkunAnak : AppCompatActivity() {
 
-    // Inisialisasi View Binding
+
     private lateinit var binding: ActivityInputakunanakBinding
     private lateinit var anakViewModel: AnakViewModel
-    private var anakId: Int? = null // Untuk menyimpan ID anak yang ingin diedit
+    private var anakId: Int? = null
 
-    // Variabel untuk kamera dan galeri
     private val REQUEST_IMAGE_CAPTURE = 1
     private var currentPhotoPath: String = ""
-    //private var currentImageUri: Uri? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,53 +46,50 @@ class InputAkunAnak : AppCompatActivity() {
 
         anakViewModel = ViewModelProvider(this).get(AnakViewModel::class.java)
 
-        // Menangkap ID anak yang diteruskan dari halaman sebelumnya
+
                 anakId = intent.getIntExtra("anak_id", -1).takeIf { it != -1 }
 
-        // Cek apakah ID ada (mengedit) atau tidak (menambah)
         if (anakId != null) {
             loadAnakData(anakId!!)
         } else {
-            // Tidak ada ID anak, berarti membuat data baru
+
             supportActionBar?.title = "Tambah Akun Anak"
         }
 
-        /// Mengatur Spinner
+
         setupSpinners()
 
         binding.btnCamera.setOnClickListener {
             showImagePickerDialog()
         }
 
-        // Tombol untuk menyimpan data anak
         binding.btnSubmit.setOnClickListener {
             if (anakId != null) {
-                // Jika ID ada, lakukan update
+
                 updateAnakData()
             } else {
-                // Jika ID tidak ada, simpan sebagai data baru
+
                 saveAnakData()
             }
         }
 
-        // Set listener untuk klik pada TextInputEditText tanggal lahir
         binding.etTanggallahir.setOnClickListener {
             showDatePickerDialog()
         }
     }
 
     private fun showDatePickerDialog() {
-        // Ambil tanggal saat ini
+
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
         val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
 
-        // Membuat DatePickerDialog
+
         val datePickerDialog = DatePickerDialog(
             this,
             { _: DatePicker, selectedYear: Int, selectedMonth: Int, selectedDayOfMonth: Int ->
-                // Format tanggal yang dipilih
+
                 val formattedDate = String.format("%02d-%02d-%04d", selectedDayOfMonth, selectedMonth + 1, selectedYear)
                 binding.etTanggallahir.setText(formattedDate)
             },
@@ -99,7 +98,6 @@ class InputAkunAnak : AppCompatActivity() {
             dayOfMonth
         )
 
-        // Menampilkan DatePickerDialog
         datePickerDialog.show()
     }
 
@@ -137,7 +135,6 @@ class InputAkunAnak : AppCompatActivity() {
         binding.spinnerAlergi.adapter = alergiAdapter
     }
 
-    // Dialog Pilihan Kamera atau Galeri
     private fun showImagePickerDialog() {
         val options = arrayOf("Ambil Foto", "Pilih dari Galeri")
         val builder = AlertDialog.Builder(this)
@@ -151,8 +148,10 @@ class InputAkunAnak : AppCompatActivity() {
         builder.show()
     }
 
-    // Fungsi untuk menangkap gambar dari kamera
     private fun captureImage() {
+
+    if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         if (intent.resolveActivity(packageManager) != null) {
             val photoFile: File? = try {
@@ -168,6 +167,29 @@ class InputAkunAnak : AppCompatActivity() {
                 )
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
                 startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
+            }
+        }
+    } else {
+
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(Manifest.permission.CAMERA),
+            REQUEST_CODE_CAMERA
+        )
+    }
+}
+    private val REQUEST_CODE_CAMERA = 100
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == REQUEST_CODE_CAMERA) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                captureImage()
+            } else {
+
+                Toast.makeText(this, "Permission to use camera is required", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -189,13 +211,12 @@ class InputAkunAnak : AppCompatActivity() {
         }
     }
 
-    // Fungsi untuk memilih gambar dari galeri
+
     private fun startGallery() {
         launcherGallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
 
 
-    // Tampilkan gambar di ImageView
     private fun showImage(path: String) {
         val file = File(path)
         if (file.exists()) {
@@ -204,7 +225,7 @@ class InputAkunAnak : AppCompatActivity() {
         }
     }
 
-    // Fungsi untuk membuat file gambar sementara
+
     private fun copyUriToInternalStorage(uri: Uri): String? {
         try {
             val inputStream = contentResolver.openInputStream(uri)
@@ -260,7 +281,7 @@ private fun saveAnakData() {
     }
 
     private fun loadAnakData(anakId: Int) {
-        // Ambil data anak berdasarkan ID dan tampilkan pada form
+
         anakViewModel.getAnakById(anakId).observe(this, { anak ->
             anak?.let {
                 binding.etNamaAnak.setText(it.nama)
@@ -278,7 +299,7 @@ private fun saveAnakData() {
     }
 
     private fun getSpinnerIndex(spinner: Spinner, value: String): Int {
-        // Cast adapter ke ArrayAdapter<String> secara eksplisit
+
         val adapter = spinner.adapter as ArrayAdapter<String>
         return adapter.getPosition(value)
     }
@@ -296,7 +317,7 @@ private fun saveAnakData() {
         val tanggalLahir = binding.etTanggallahir.text.toString().trim()
 
         val anak = Anak(
-            id = anakId!!, // ID untuk update
+            id = anakId!!,
             nama = namaAnak,
             usia = usiaAnak,
             jenisKelamin = jenisKelamin,

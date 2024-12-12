@@ -11,25 +11,24 @@ class AnakRepository(private val anakDao: AnakDao) {
         try {
             anakDao.insert(anak)
         } catch (e: Exception) {
-            // Penanganan error jika diperlukan
+
             e.printStackTrace()
         }
     }
 
     suspend fun update(anak: Anak) {
         try {
-            anakDao.update(anak)  // Memanggil fungsi update dari DAO
+            anakDao.update(anak)
         } catch (e: Exception) {
-            // Penanganan error jika diperlukan
             e.printStackTrace()
         }
     }
 
     suspend fun delete(anak: Anak) {
         try {
-            anakDao.delete(anak)  // Memanggil fungsi delete dari DAO
+            anakDao.delete(anak)
         } catch (e: Exception) {
-            // Penanganan error jika diperlukan
+
             e.printStackTrace()
         }
     }
@@ -39,15 +38,15 @@ class AnakRepository(private val anakDao: AnakDao) {
     }
 
     fun getLatestAnakId(): LiveData<Int> {
-        return anakDao.getLatestAnakId() // Mengembalikan LiveData dari DAO
+        return anakDao.getLatestAnakId()
     }
 
-    // Fungsi tambahan untuk menghapus berdasarkan ID
+
     suspend fun deleteById(id: Int) {
         try {
             anakDao.deleteById(id)
         } catch (e: Exception) {
-            // Penanganan error jika diperlukan
+
             e.printStackTrace()
         }
     }

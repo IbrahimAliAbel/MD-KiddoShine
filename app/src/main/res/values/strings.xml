@@ -6,7 +6,7 @@
     <string name="title_list_anak">List Anak</string>
     <string name="title_artikel">Artikel</string>
     <string name="title_marketplace">Marketplace</string>
-
+    <string name="title_settings">Settings</string>
     <!-- Input Akun Anak -->
     <string name="nama_anak">Nama Anak</string>
     <string name="usia_anak">Usia Anak</string>
@@ -24,6 +24,11 @@
     <string-array name="jenis_kelamin_array">
         <item>Laki-laki</item>
         <item>Perempuan</item>
+    </string-array>
+
+    <string-array name="breastfeeding_options">
+        <item>ASI Eklusif</item>
+        <item>ASI non-eklusif</item>
     </string-array>
 
     <!-- Kelahiran -->
@@ -46,4 +51,43 @@
         <item>Ya</item>
         <item>Tidak</item>
     </string-array>
+
+    <!-- List Title Product-->
+
+    <string name="vidoran_bunda">vidoran Ibunda Vanilla Kacang Hijau 350gr Susu Ibu Hamil - 2 box</string>
+    <string name="vidoran_anak_1">Vidoran Xmart 1+ Imun Up Susu Formula Vanilla [700 G/2 Box]</string>
+    <string name="vidoran_anak_3">Vidoran Xmart 3+ Imun Up Susu Formula Vanilla [700 g/2 pcs]</string>
+
+    <string name="bebelove_1">Bebelove 1 Formula Bayi Bubuk 400 GR</string>
+    <string name="bebelove_2">Bebelove 2 Formula Bayi Bubuk 400 GR</string>
+    <string name="bebelac_3">Bebelac 3 Vanila Susu Pertumbuhan Bubuk 800 GR</string>
+
+    <string name="sgm_bunda">SGM Bunda Pro-GressMaxx Tinggi Zat Besi Cokelat Susu Bubuk 150gram</string>
+    <string name="sgm_1">SGM Ananda 2 Susu Formula Bayi 6-12 Bln 600g</string>
+    <string name="sgm_2">SGM Eksplor ISOPRO SOY 1+ Vanilla Susu Pertumbuhan 400GR (ALD)</string>
+    <string name="sgm_3">SGM Eksplor 3+ dengan IronC Susu Bubuk Rasa Vanilla 600GRAM (ALD)</string>
+
+    <!-- List Deskripsi Product-->
+    <string name="deskripsi_vidoran_bunda">Susu vidoran Ibunda merupakan susu Ibu Hamil Pertama di Indonesia yang diperkaya dengan Cod Liver Oil yang berasal dari Ikan Cod perairan Laut dalam sehingga bebas kontaminasi. Cod Liver Oil atau Minyak Hati Ikan Cod, mengandung Omega 3 (DHA dan EPA) serta vitamin A dan D alami, Berperan penting dalam pembentukan dan pertumbuhan jaringan otak serta retina mata pada janin. Susu vidoran Ibunda juga mengandung nutrisi, seperti Kalsium, Asam Folat dan Asam linoleat.</string>
+    <string name="deskripsi_vidoran_anak_1">Cod liver oil merupakan minyak hati ikan kod yang mengandung Omega 3 ( DHA + EPA ) dan tinggi vitamin A dan D alami yang berguna untuk membantu mengoptimalkan perkembangan jaringan Otak, meningkatkan daya tahan dan pertumbuhan anak. FOS Inulin, merupakan serat pangan larut yang berfungsi untuk meningkatkan kesehatan saluran cerna anak.Asam lemak esensial (asam linoleat) yang berguna untuk pertumbuhan dan perkembangan anak.</string>
+    <string name="deskripsi_vidoran_anak_3">Cod liver oil merupakan minyak hati ikan kod yang mengandung Omega 3 ( DHA + EPA ) dan tinggi vitamin A dan D alami yang berguna untuk membantu mengoptimalkan perkembangan jaringan Otak, meningkatkan daya tahan dan pertumbuhan anak.FOS Inulin, merupakan serat pangan larut yang berfungsi untuk meningkatkan kesehatan saluran cerna anak.Asam lemak esensial (asam linoleat) yang berguna untuk pertumbuhan dan perkembangan anak.</string>
+
+    <string name="deskripsi_bebelac">Bebelove 1 - Susu Formula untuk Bayi usia 0-6 Bulan.Air Susu Ibu (ASI) adalah yang terbaik untuk bayi Anda. Susu formula bayi bukan pengganti Air Susu Ibu (ASI). Penggunaan susu formula hanya dapat dilakukan sesuai saran dan petunjuk dokter dan ahli kesehatan lainnya.Pemberian Air Susu Ibu (ASI) secara eksklusif bagi bayi di Indonesia sejak lahir sampai dengan bayi berumur 6 (enam) bulan dan dianjurkan dilanjutkan sampai anak usia 2 (dua) tahun dengan pemberian makanan pendamping ASI. Untuk kesehatan bayi Anda, ikutilah tabel aturan pemberian dengan baik atau konsultasikan dengan dokter anak Anda atau ahli kesehatan lainnya, mengenai kebutuhan serta cara yang tepat atas penggunaan susu formula.KOMPOSISI Laktosa, Protein whey, Minyak nabati (mengandung lesitin kedelai, antioksidan askorbil palmitat), Susu skim bubuk, Galakto Oligo Sakarida (GOS), 7 Mineral, Minyak ikan (DHA) (mengandung antioksidan askorbil palmitat, natrium askorbat dan tokoferol campuran pekat), Frukto Oligo Sakarida (FOS), Minyak sel tunggal (AA) (mengandung antioksidan askorbil palmitat, natrium askorbat, dan tokoferol campuran pekat), 14 Vitamin, L-karnitin. Mengandung alergen, lihat bahan yang dicetak tebal.</string>
+    <string name="deskripsi_bebelac1">Bebelove 2 - Susu Formula untuk Bayi usia 6-12 Bulan PENTING Air Susu Ibu (ASI) adalah yang terbaik untuk bayi Anda. Susu formula lanjutan bukan pengganti Air Susu Ibu (ASI). Penggunaan susu formula hanya dapat dilakukan sesuai saran dan petunjuk dokter dan ahli kesehatan lainnya. Pemberian Air Susu Ibu (ASI) secara eksklusif bagi bayi di Indonesia sejak lahir sampai dengan bayi berumur 6 (enam) bulan dan dianjurkan dilanjutkan sampai anak usia 2 (dua) tahun dengan pemberian makanan pendamping ASI. Untuk kesehatan bayi Anda, ikutilah tabel aturan pemberian dengan baik atau konsultasikan dengan dokter anak Anda atau ahli kesehatan lainnya, mengenai kebutuhan serta cara yang tepat atas penggunaan susu formula.KOMPOSISI Laktosa, Protein whey, Minyak nabati (mengandung lesitin kedelai, antioksidan askorbil palmitate, dan dl-alfa tokoferol). Susu skim bubuk, Galakto Oligo Sakarida (GOS), 7 Mineral, Minyak ikan (DHA) (mengandung antioksidan askorbil palmitat, natrium askorbat dan tokoferol campuran pekat), Frukto Oligo Sakarida (FOS), Minyak sel tunggal (AA) (mengandung antioksidan askorbil palmitat, natrium askorbat, dan tokoferol campuran pekat), 14 Vitamin, L-karnitin. Mengandung alergen, lihat bahan yang dicetak tebal.</string>
+    <string name="deskripsi_bebelac3">Bebelac 3 Vanila GroGreat+ Susu Pertumbuhan Bubuk 800 GR Bebelac3GroGreat+SusuPertumbuhanBubuk Susu Bebelac 3 merupakan Susu Pertumbuhan anak 1 tahunsampai 3 tahun</string>
+
+    <string name="deskripsi_sgm_bunda">Susu Ibu Hamil dan Menyusui SGM Bunda ProgressMaxx adalah susu khusus untuk ibu hamil dan menyusui yang diperkaya dengan zat besi dan nutrisi penting lainnya. Cukup dengan satu gelas sehari, susu ini dapat membantu memaksimalkan tumbuh kembang si kecil di awal kehidupannya.Dengan kandungan gizi yang lengkap, SGM Bunda ProgressMaxx membantu memenuhi kebutuhan nutrisi ibu selama masa kehamilan dan menyusui, memastikan ibu dan bayi mendapatkan gizi yang optimal.</string>
+    <string name="deskripsi_sgm_anak">Susu Formula untuk Bayi Usia 6-12 Bulan SGM Ananda 6-12 Bulan adalah susu formula yang dirancang khusus untuk bayi berusia 6-12 bulan. Dilengkapi dengan nutrisi penting, termasuk: Protein Whey: Membantu mendukung pertumbuhan dan perkembangan bayi. Minyak Nabati: Sumber energi yang baik untuk bayi. AA-DHA: Mendukung perkembangan otak dan penglihatan bayi. Penting untuk Diketahui: ASI (Air Susu Ibu) adalah yang terbaik untuk bayi Anda. Susu formula ini bukan pengganti ASI. Diskon tambahan tidak berlaku untuk produk ini. Tanggal yang tertera di kemasan adalah tanggal produksi, bukan tanggal kedaluwarsa. Pastikan Anda memeriksa tanggal sebelum penggunaan.</string>
+    <string name="deskripsi_sgm_anak1">SGM Eksplor ISOPRO SOY adalah susu pertumbuhan dengan Isolat Protein Soya berkualitas, dirancang untuk anak usia 1-5 tahun yang tidak cocok dengan susu sapi. Sebagai produk soya No.1 di Indonesia, susu ini menyediakan nutrisi yang setara dengan susu sapi, dengan kandungan khusus untuk mendukung tumbuh kembang optimal si kecil.</string>
+    <string name="deskripsi_sgm_anak3">SGM Eksplor 3+ adalah susu pertumbuhan yang dirancang khusus untuk mendukung tumbuh kembang optimal anak usia 3 tahun ke atas. Susu ini dilengkapi dengan IronC, kombinasi unik zat besi dan vitamin C, yang membantu meningkatkan penyerapan zat besi hingga 2x lipat.</string>
+
+    <string name="Home">Home</string>
+    <string name="ListAnak">List Anak</string>
+    <string name="MarketPlace">Detail</string>
+    <string name="Artikel">Detail</string>
+    <string name="detail">Detail Product</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dark_mode">Dark Mode</string>
+
 </resources>
