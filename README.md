@@ -9,6 +9,12 @@
 
 - Ibrahim Ali Abel- [Github@Ibrahim Ali Abel](https://github.com/IbrahimAliAbel)-Mobile Development(`MD-08`)-Universitas Amikom Purwokerto
 - Tegar Romadhany-[Github@Tegar Romadhany](https://github.com/rtegar)-Mobile Development(`MD-18`)-Universitas Amikom Purwokerto
+
+## App Features
+  ![KiddoShine](Asset/1.jpg)
+  ![KiddoShine](Asset/2.jpg)
+  ![KiddoShine](Asset/3.jpg)
+  ![KiddoShine](Asset/4.jpg)
   
 ## Tools & Libraries
 - [Android Studio](https://developer.android.com/studio)
