@@ -7,8 +7,8 @@
 
 ## Mobile Team
 
-- Ibrahim Ali Abel- [Github@Ibrahim Ali Abel](https://www.github.com/MuhammadBobby)-Mobile Development(`MD-08`)-Universitas Amikom Purwokerto
-- Tegar Romadhany-[Github@Tegar Romadhany](https://www.github.com/AuliyaIkhsanaNasution)-Mobile Development(`MD-18`)-Universitas Amikom Purwokerto
+- Ibrahim Ali Abel- [Github@Ibrahim Ali Abel](https://github.com/IbrahimAliAbel)-Mobile Development(`MD-08`)-Universitas Amikom Purwokerto
+- Tegar Romadhany-[Github@Tegar Romadhany](https://github.com/rtegar)-Mobile Development(`MD-18`)-Universitas Amikom Purwokerto
 ## Tools & Libraries
 - [Android Studio](https://developer.android.com/studio)
 - [Retrofit](https://square.github.io/retrofit/)
