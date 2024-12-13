@@ -27,3 +27,11 @@
   <p>We use model-view-viewmodel architecture for building the apps. Here, we divide parts into the ui layer and data layer. In the ui layer, we used a ViewModel that incorporates LiveData to supply observed data to the activity. To get the data, view models are connected to the repository through a view model factory. The repository itself is located in the data layer and used to manage data sources both from local data source and remote data source. For the local data source, we implement Room to establish the database. As for the remote data source, Retrofit is used to interact with web services.
 </p>
 
+## 🔗 Social Media
+**Ibrahim Ali Abel**
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ibrahim-ali-abel-24a20a248/)
+
+[![Instagram](https://img.shields.io/badge/instagram-1DA1F2?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/abllz_/)
+
+
