@@ -9,9 +9,15 @@
 
 - Ibrahim Ali Abel- [Github@Ibrahim Ali Abel](https://github.com/IbrahimAliAbel)-Mobile Development(`MD-08`)-Universitas Amikom Purwokerto
 - Tegar Romadhany-[Github@Tegar Romadhany](https://github.com/rtegar)-Mobile Development(`MD-18`)-Universitas Amikom Purwokerto
+  
 ## Tools & Libraries
 - [Android Studio](https://developer.android.com/studio)
 - [Retrofit](https://square.github.io/retrofit/)
 - [Room](https://developer.android.com/jetpack/androidx/releases/room)
 - [Figma](https://www.figma.com/)
 - [Kotlin](https://kotlinlang.org/)
+
+## ✅ Aplication, Wireframe, & Mockup
+
+- Aplication Link: [KiddoShine](https://drive.google.com/file/d/1zsk4luusuGapibc4UGPYVCysEUS_1GTO/view?usp=drive_link)
+
