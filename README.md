@@ -9,6 +9,5 @@
 - [Android Studio](https://developer.android.com/studio)
 - [Retrofit](https://square.github.io/retrofit/)
 - [Room](https://developer.android.com/jetpack/androidx/releases/room)
-- [CameraX](https://developer.android.com/training/camerax)
 - [Figma](https://www.figma.com/)
-- [Firebase](https://firebase.google.com/)
+- [Kotlin](https://kotlinlang.org/)
