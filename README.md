@@ -17,7 +17,8 @@
 - [Figma](https://www.figma.com/)
 - [Kotlin](https://kotlinlang.org/)
 
-## ✅ Aplication, Wireframe, & Mockup
+## ✅ Aplication Download & Demo Application
 
-- Aplication Link: [KiddoShine](https://drive.google.com/file/d/1zsk4luusuGapibc4UGPYVCysEUS_1GTO/view?usp=drive_link)
+- Application Link: [KiddoShine](https://drive.google.com/file/d/1zsk4luusuGapibc4UGPYVCysEUS_1GTO/view?usp=drive_link)
+- Demo Application: [KiddoShine](https://drive.google.com/file/d/19XRtOnvo9TuWcEA2f-PHTlC6wMD6qhHK/view?usp=drive_link)
 
